@@ -1,0 +1,70 @@
+.topicos{ /*Section= topicos - h2, ul, li e a*/
+    background: var(--azul-degrade); /*Como é um gradiente usa-se apenas BACKGROUND*/
+    text-align: center;
+    padding: 1em 0;
+}
+
+.topicos_titulo{ /*H2*/
+    font-weight: 300;
+    color: var(--branco);
+    margin-bottom: 1em ; 
+}
+
+.topicos_lista{ /*UL*/
+    display: flex; /*Ficou todo LI>A em linha*/
+    flex-wrap: wrap; /*Para o conteudo quebrar para outra linha quando não couber*/
+    justify-content: center;
+}
+
+
+.topicos_item{ /*LI*/
+    background-color: var(--laranja);
+    margin:  0.5em;
+    padding: 1em;
+
+}
+
+.topicos_link{ /*A*/
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--branco);
+    text-decoration: none;
+}
+
+
+@media screen and (min-width:1024px) {
+
+    .topicos_titulo ,.topicos_link{
+        font-size: 24px;
+    }
+
+
+    .topicos_lista{
+        display: flex; /*Coloca no pai, deixa em linha*/
+        width: 80%; /*Largura para as caixa lista começar se alinhar*/
+        margin: 0 auto; /*Deixar centralizado*/    
+    }
+    .topicos_item{
+        padding: 2em; /*Espaçamento interno aumentar dos item*/       
+    }
+
+  
+
+}
+
+@media screen and (min-width:2025px) {
+
+    .topicos{
+        padding: 3em 25vw;
+    }
+    
+    .topicos_titulo{
+        font-size: 32px;
+    }
+
+    .topicos_link{
+        font-size: 24px;
+    }
+
+
+}

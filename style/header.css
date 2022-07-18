@@ -1,0 +1,192 @@
+.cabecalho_menu-hamburguer{ /*SPAN*/
+    display: inline-block; /*INLINE-BLOCK - Porque deixa por LARGURA e ALTURA - Por isso não coloquei so INLINE*/
+    background-image: url(/img/Menu.svg);
+    background-repeat: no-repeat; /*Para a imagem menu não repetir por conta colocamos um padding 24px, então ele passou de 24px por conta do padding e estava tentando repetir*/
+    background-position: center; /*Pra deixar ele centralizado já que ele saiu da posição*/
+    width: 24px;
+    height: 24px;
+}
+
+.cabecalho{ /*HEADER*/
+    display: flex; /*Para deixar ele inline*/
+    position: relative; /*O elemento passa a aceitar as propriedades Top, Bottom, Left e Right. Com elas você pode alterar o posicionamento do elemento.*/
+    background-color: var(--branco);
+    justify-content: space-between; /*Espaço entre os conteudos*/
+    align-items: center; /*Todo o conteudo esta centralizado*/
+}
+
+.container_botao:checked ~ .menu_rotulo>.cabecalho_menu-hamburguer{
+    background-image: url(../img/Menu\ Aberto.svg);
+
+}
+
+.container_botao:checked~.menu_rotulo{
+    background: var(--azul-degrade);
+}
+
+.container{ /*A DIV CONTAINER esta inglobando o SPAN e IMG */
+    display: flex;
+    align-items: center;
+}
+
+.container_titulo{ /*H1 e dentro dele tem o B - responsivel tablet - Ele vai desaparecer esse novo container quando diminuirmos para celular - por o B esta dentro H1 eles desaparecem juntos*/
+    display: none;
+}
+
+.container_botao{
+    display: none; /*Esconde o botão CHEKBOX*/
+}
+
+.opçoes{
+    display: none; /*Vai esconder as 3 escrita no header -CATEGORIAS, FAVORITOS e MINHA ESTANTE*/
+}
+
+.container_img{ /*Foi utilizado em todas imagens que esta no header, inclusive a do SPAN*/
+    padding: 1em; /*Quando colocamos essa propriedade o codigo de barra SPAN ficou parecido com um codigo de barra invertido por conta demos altura e largura no SPAN para corrigir, ir no SPAN e por NO REPIT*/
+}
+
+.lista-menu{ /*Lista UL*/
+    display: none; /*Ele desaparece com os elementos UL e não ocupa nenhum espaço*/
+    position: absolute; /*Ele sai do lugar, ele vai pra frente e pode posicionar onde quisermos*/
+    top: 100%; /*Desceu do topo HEADER 100%*/
+    width: 70vw; /*Largura do menu*/
+}
+
+
+.lista-menu_titulo{
+    font-weight: 700;
+    color: var(--laranja);
+}
+
+.lista-menu_link{ /*Para pegar a propriedade azul do fonte*/
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;/*O BACKGORUND-COLOR = Ele não aplica direto na fonte, colocando esse atributo ele ira colocar no TEXTO*/
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;  /*Deixar letra maiscula*/
+}
+
+.container_botao:checked ~.lista-menu{ /*CONTAINER_BOTAO é o INPUT CHECKBOX - LISTA MENU é o UL*/  /*Quando clicar no CHECKBOX ele aparece o LISTA-MENU*/
+    display: block;  /*Deixar os itens do menu um embaixo do outro*/
+}
+
+.lista-menu_titulo, 
+.lista-menu_item{ /*1º LI = CATEGORIAS - 2º UL para abrir as listas LI*/
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+
+
+.container_texto{ /*O "P" ele vai desaparecer so quando tiver menor que 2025px*/
+    display: none;
+}
+
+
+                                                      /*Responsivel para tablet*/
+@media screen and (min-width:1024px) { /*Media Query*/
+    .container_titulo, .container_titulo_negrito{
+        font-family: var(--fonte-secundario);
+        font-size: 30px;
+    }
+
+    .container_titulo{
+        font-weight: 400;
+        display: block; /*O titulo ALURA BOOKS aparece quando colocamos o DISPLAY BLOCK e estando com tela 1024*/
+    }
+
+    .container_titulo_negrito{
+        font-weight: 700;
+    }
+
+    .opçoes{ /*UL-OPÇOES*/
+        display: flex; /*Deixa de ser block e fica line- um ao lado do outro*/
+    }
+
+    .opçoes_lista{
+        padding: 0 1em; /*aS 3 Palavras no header se destanciar uma da outra 1em, porque quando colocamos flex elas estavam grudadas*/
+    }
+
+
+    .opçoes_botao:checked ~ .opcoes_rotulo > .opçoes_lista{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opçoes_lista{
+        padding: 1em 1em;
+    }
+
+    .lista-menu_item:hover{
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu_item:hover > .lista-menu_link{
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+    .opçoes_link{
+        text-decoration: none;
+        text-transform: uppercase; /*Deixar na letra maiuscula*/
+        color: var(--preto);
+    }
+
+    .container_coracao_transpante{ /*Colocamos outra codenome no class para ele estilizar somente a img coraçao*/
+        display: none; /*Quando a tela tiver 1024- o coração do header desaparece*/
+    }
+
+    .cabecalho_menu-hamburguer{ /*Desaparecer o menu opções com 3 pauzinhos*/
+        display: none;
+    }
+
+    .opçoes_botao:checked ~ .lista-menu{  /*Quando o OPÇOES_B for CHECKED ele abre a LISTA-MENU*/
+        display: block;  /*Um embaixo do outro*/
+        width: auto; /*Ele vai preencher o tamanho dele*/
+    }
+
+    .opçoes_botao{ /*Responsivo para desktop tela 2025px*/
+        display: none;
+    }
+
+
+}
+
+
+
+
+
+                                                      /*Responsivel para DESKTOP=COMPUTADOR*/
+
+ @media screen and (min-width: 2025px) { /*Media Query*/
+
+    .opçoes{ /*UL que pega as 3 palavras - CATEGORIAS, FAVORITOS e MINHA ESTANTE*/
+        margin-right: auto; /*Ele joga todo o conteudo das 3 palavras a esquerda*/
+        padding: 0 2em;
+    }
+
+    .cabecalho{ /*Pegou o cabeçalho que tem todo o conteudo*/
+        padding: 0 2em;
+    }
+
+    .container_link{ /*É o A que engloba o IMG e o P*/
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+
+    .container_texto{  /*P*/
+        font-size: 20px;
+        color: var(--preto);
+    }
+
+    .container_texto{ /*O "P" ele vai aparecer so quando tiver na tela 2025px*/
+        display: block;
+    }
+
+}
+
+
+/*Eu coloco para desaparecer fora  do @media screen and (min-width:1024px) siginifica que ele vai desaparecer quando ele virar as medidas do celular = MOBILE LAYOUT 428 */
+
+/*Quando se colocar dentro do @media screen and (min-width:1024px) desaparecer, significa quando ele tiver no 1024 ele não vai aparecer a img ou tal coniguração */

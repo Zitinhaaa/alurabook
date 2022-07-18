@@ -1,0 +1,86 @@
+
+
+.contato{ /*SECTION - H3, P, INPUT*/
+    background-color: var(--branco);
+    padding: 1em;
+}
+
+
+.contato_titulo, /*H3*/
+.contato_texto{ /*P*/
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+.contato_titulo{ /*H3*/
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contato_texto{ /*P*/
+    font-weight: 300;  
+    margin: 1em 0;
+}
+
+.contato_email{ /*INPUT= BANNER_PESQUISA*/
+    border: 1px solid var(--azul);
+    border-radius: 24px;
+    color: var(--azul);
+    caret-color: var(--azul-degrade); /*é a cor da barra que fica pisando até escrevermos dentro da tela*/
+    padding: 1em;
+    width: 90%; /*Largura do INPUT*/
+    outline: none; /*tirando o contorno do input=tela*/
+
+}
+
+.contato_email::placeholder{
+    background-image: url(../img/email.svg);
+    background-repeat: no-repeat;
+    color: var(--azul);
+    font-family: var(--fonte-principal); /*Temos que colocar a familia fonte por conta o placeholder n pega a atribuição*/
+    font-weight: 400;
+    padding-left: 2.5em; /*Para afastar a escrita do icone email*/
+}
+
+
+
+@media screen and (min-width:1024px) {
+
+.contato{
+    display: flex; /*Ja deixou um do lado do outro com display flex*/
+    justify-content: center; /*Centralizou todo o conteudo no meio*/
+    align-items: center; /*Os itens centralizado e diminuiu o padding do email*/
+}
+
+.contato_descricao{
+    margin-right: 2em;
+    width: 30%; /*Largura 30% deu uma quebra na frase*/
+}
+
+.contato_titulo{
+    font-size: 24px;
+}
+
+.contato_email{
+    width: 30%;
+}
+
+}
+
+
+
+@media screen and (min-width:2025px) {
+
+    .contato{
+        padding: 3em 17vw;
+    }
+
+    .contato_texto{
+        max-width: 300px;
+        line-height: 1.5em; /*Defina a altura da linha*/
+    }
+    
+}
